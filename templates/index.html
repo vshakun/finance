@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block main %}
+
+<table>
+  <tr>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Shares</th>
+    <th>Price</th>
+    <th>TOTAL</th>
+  </tr>
+  {% for entry in stocks %}
+  <tr>
+    <td>{{ entry["symbol"] }}</td>
+    <td>{{ entry["company"] }}</td>
+    <td>{{ entry["shares"] }}</td>
+    <td>{{ entry["price_per_share"] }}</td>
+    <td>{{ entry["symbol_total"] }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td>CASH</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{ user_balance }}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td id=total>{{ total }}</td>
+  </tr>
+</table>
+{% endblock %}
